@@ -93,11 +93,13 @@ export default function Home() {
       </Col>
       <div className="fixed bottom-0 left-0 right-0 z-10 flex flex-row items-center justify-center">
         <div className="max-w-desktop w-full">
-          <CreatePost
-            onSubmit={async ({ title, content, image }) => {
-              await handleCreatePost(title, content, image);
-            }}
-          />
+          {userInfo !== null && (
+            <CreatePost
+              onSubmit={async ({ title, content, image }) => {
+                await handleCreatePost(title, content, image);
+              }}
+            />
+          )}
         </div>
       </div>
       {/* Right Sidebar */}
